@@ -1,0 +1,600 @@
+/* General Styling */
+.file-explorer-container {
+    position: relative;
+    background-color: #f4f7fa;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 60px;
+}
+
+.context-menu {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    /* Ensure flex layout is applied */
+    flex-direction: column;
+    /* Stack the children (buttons) vertically */
+    gap: 10px;
+    /* Optional: Add space between buttons */
+}
+
+.context-menu button {
+    background: none;
+    border: none;
+    color: #000;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    /* Ensure the buttons take full width */
+}
+
+.context-menu button:hover {
+    background-color: #f1f1f1;
+}
+
+.gray-background {
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Toolbar Styling */
+.toolbar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
+
+.file-list {
+    max-height: 500px; // Görüntülemek istediğiniz maksimum yükseklik
+    overflow-y: auto; // Dikey kaydırma çubuğu ekler
+    overflow-x: hidden; // Yatay kaydırmayı gizler
+
+    table {
+        width: 100%;
+        border-collapse: collapse; // Kenarlıkların çakışmasını önler
+    }
+
+    thead {
+        background-color: #f1f1f1; // Başlık satırının arka plan rengi
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd; // Satırlar arasına sınır ekler
+    }
+
+    th {
+        background-color: #e0e0e0; // Başlık hücrelerinin arka plan rengi
+        font-weight: bold;
+    }
+
+    td {
+        overflow: hidden; // Taşmaları gizler
+        text-overflow: ellipsis; // Taşan metinler için '...' ekler
+        white-space: nowrap; // Satır kaydırmayı önler
+    }
+}
+
+/* Create Group Button */
+.create-group-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #ff002a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-group-button:hover {
+    background-color: #0056b3;
+}
+
+/* Folder Creation Section */
+input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #218838;
+    }
+}
+
+.breadcrumb-container {
+    margin: 10px 0;
+    font-size: 14px;
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* File and Folder List */
+.folder-name {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+            background-color: #e9ecef;
+        }
+    }
+
+    button {
+        background-color: #dc3545;
+
+        &:hover {
+            background-color: #c82333;
+        }
+    }
+}
+
+/* File Upload */
+.upload-container {
+    margin-top: 20px;
+
+    .upload-form {
+        display: flex;
+        align-items: center;
+
+        .file-input {
+            margin-right: 10px;
+        }
+
+        .upload-button {
+            background-color: #ff002a;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .file-info {
+        margin-top: 10px;
+        font-style: italic;
+    }
+
+    .progress-info {
+        margin-top: 10px;
+        color: green;
+    }
+}
+
+/* Table View for Files */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #ddd;
+    }
+
+    td {
+        background-color: white;
+        border: 1px solid #ddd;
+    }
+
+    button {
+        background-color: #007bff;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
+
+/* Grid View for Files */
+.file-grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    .file-card {
+        background-color: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        flex-basis: calc(33.33% - 20px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .file-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .file-info {
+            h3 {
+                margin: 10px 0;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            p {
+                font-size: 14px;
+                text-align: center;
+                color: #6c757d;
+            }
+
+            button {
+                margin-top: 10px;
+                background-color: #007bff;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+        }
+    }
+}
+
+/* Breadcrumb Styling */
+.breadcrumb-container {
+    margin: 20px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    }
+
+    /* Adding some spacing between items and custom arrow */
+    ng-container {
+        display: flex;
+        align-items: center;
+
+        &::after {
+            content: '>';
+            margin: 0 10px;
+            color: #6c757d;
+        }
+
+        &:last-child::after {
+            content: '';
+        }
+    }
+
+    /* Style the active breadcrumb (last one) */
+    .breadcrumb-active {
+        color: #343a40;
+        font-weight: 600;
+        pointer-events: none;
+    }
+}
+
+/* User Groups Container */
+.user-groups-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        font-size: 22px;
+        color: #343a40;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+    }
+}
+
+/* Group List */
+.group-list {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        background-color: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            background-color: #e9ecef;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #0056b3;
+            }
+        }
+    }
+}
+
+/* No Groups Message */
+.no-groups-text {
+    font-size: 16px;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.group-users-btn {
+    background-color: #ff002a;
+    /* Griden hoş bir ton seçtim */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.group-users-btn:hover {
+    background-color: #ff002a;
+    /* Hover efektinde koyulaştırdım */
+    transform: translateY(-2px);
+    /* Hafif yukarı kaldırma efekti */
+}
+
+.group-users-btn:active {
+    background-color: #ff002a;
+    /* Tıklama anında daha koyu renk */
+    transform: translateY(0);
+    /* Tıklamada eski konuma dönüş */
+}
+
+.profile-menu {
+    position: relative;
+    display: inline-block;
+
+    .profile-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .arrow-down {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #f1f1f1;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        width: 200px;
+        /* Daha geniş menü */
+        overflow: hidden;
+        z-index: 1;
+
+        button {
+            background-color: #4CAF50;
+            /* Varsayılan arka plan rengi */
+            color: white;
+            padding: 10px 14px;
+            /* Padding ayarı */
+            font-size: 14px;
+            /* Font boyutu ayarı */
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            /* Butonları tam genişlikte yapar */
+            text-align: left;
+            /* Buton metnini sola hizalar */
+            display: block;
+            box-sizing: border-box;
+            /* Kenar boşluklarını ve padding’i kutu boyutuna dahil eder */
+        }
+
+        button:hover {
+            background-color: #ddd;
+            /* Hover rengi */
+        }
+
+        .logout-button {
+            background-color: #ff002a;
+            /* Kırmızı arka plan rengi */
+            color: white;
+            border-top: 1px solid #ddd;
+            /* Üst kenarına sınır ekler */
+        }
+
+        li {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #ddd;
+            }
+        }
+    }
+}
+
+
+.modal {
+    display: block;
+    /* Or 'flex' depending on your layout */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.feedback-box {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  .Positive {
+    background-color: #4caf50; /* Yeşil */
+  }
+  
+  .Negative {
+    background-color: #f44336; /* Kırmızı */
+  }
+  
+  

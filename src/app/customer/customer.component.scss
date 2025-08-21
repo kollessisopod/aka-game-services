@@ -1,0 +1,168 @@
+.feedback-form {
+    margin: 20px 0;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-type {
+    margin-bottom: 10px;
+  }
+  
+  .feedback-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  
+  .positive {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  .neutral {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  
+  .negative {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+ /* Bildirim Modalı Stili */
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.scrollable-content {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 300px; /* Set a fixed height for the scrollable area */
+  margin-bottom: 20px; /* Space between the list and the button */
+  padding-right: 10px; /* Adjust padding to account for scroll bar */
+}
+
+.scrollable-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.scrollable-content li {
+  margin-bottom: 10px;
+}
+
+
+.close {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+/* Toolbar Styling */
+.toolbar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  button {
+      background-color: #ff002a;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+          background-color: #000000;
+      }
+  }
+}
+
+  .notification {
+    background-color: #4CAF50; /* Yeşil arka plan */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .notification.error {
+    background-color: #f44336; /* Kırmızı arka plan (hata için) */
+  }
+  
+  .notification.info {
+    background-color: #2196F3; /* Mavi arka plan (bilgi için) */
+  }
+  
+  .group-users-btn {
+    background-color: #ff002a;
+    /* Griden hoş bir ton seçtim */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.group-users-btn:hover {
+    background-color: #000000;
+    /* Hover efektinde koyulaştırdım */
+    transform: translateY(-2px);
+    /* Hafif yukarı kaldırma efekti */
+}
+
+.group-users-btn:active {
+    background-color: #495057;
+    /* Tıklama anında daha koyu renk */
+    transform: translateY(0);
+    /* Tıklamada eski konuma dönüş */
+}
+  

@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit(form)" #form='ngForm'>
+    <div>
+        <p>Test</p>
+        <input type="email" name="username" ngModel/>
+        <input type="password" name="password" ngModel/>
+        <input type="submit"/>
+        <p>{{errMessage}}</p>
+    </div>
+</form>

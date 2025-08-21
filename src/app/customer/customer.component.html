@@ -1,0 +1,88 @@
+<!-- Buton ile Modalı Aç -->
+<div class="toolbar">
+    <button (click)="openNotificationModal(); fetchNotifications()" class="group-users-btn">Bildirimleri Göster</button>
+    <button (click)="myPoints();" class="group-users-btn">Puanlarımı Göster</button>
+    <button (click)="Recommendation();" class="group-users-btn">Önerilen Oyunlar</button>
+    <button (click)="openGamesModal()" class="group-users-btn">Show All Games</button>
+    <button (click)="logout()" class="group-users-btn">Logout</button>
+</div>
+
+<!-- Modal for displaying all games and rating them -->
+<div class="modal" *ngIf="isGamesModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closeGamesModal()">&times;</span>
+    <h2>All Games</h2>
+    <div class="scrollable-content">
+      <ul>
+        <li *ngFor="let game of games">
+          <strong>{{ game.name }}</strong>
+          <!-- Rating System -->
+          <div>
+            <label for="rating-{{ game.id }}">Rate this game:</label>
+            <select id="rating-{{ game.id }}" [(ngModel)]="ratings[game.id]">
+              <option *ngFor="let rating of ratingsArray" [value]="rating">{{ rating }}</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <button (click)="submitRatings()">Submit Ratings</button>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isRecommendationModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closeRecommendationModal()">&times;</span>
+    <h2>Recommended Games</h2>
+    <ul>
+      <li *ngFor="let game of recommendedGames">
+        <strong>{{ game.name }}</strong> - {{ game.genre }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isPlayerModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closePlayerModal()">&times;</span>
+    <h2>Games</h2>
+    <ul>
+      <li *ngFor="let game of games">
+        <strong>{{ game.game.name }}</strong> - {{ game.game.genre }} - {{ game.score }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closeNotificationModal()">&times;</span>
+    <h2>Notifications</h2>
+    <ul>
+      <li *ngFor="let notification of notifications">
+        <strong>{{ notification.content }}</strong>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Şikayet Yazma Formu -->
+<div class="feedback-form">
+    <h2>Şikayet Yazın</h2>
+    <textarea [(ngModel)]="feedbackContent" placeholder="Şikayetinizi buraya yazın" rows="4" cols="50"></textarea>
+  
+    <div class="feedback-type">
+      <label>
+        <input type="radio" name="feedbackType" [(ngModel)]="feedbackType" value="Positive"> Pozitif
+      </label>
+      <label>
+        <input type="radio" name="feedbackType" [(ngModel)]="feedbackType" value="Neutral"> Nötr
+      </label>
+      <label>
+        <input type="radio" name="feedbackType" [(ngModel)]="feedbackType" value="Negative"> Negatif
+      </label>
+    </div>
+  
+    <button (click)="submitFeedback()" class="group-users-btn">Gönder</button>
+</div>
+  

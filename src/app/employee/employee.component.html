@@ -1,0 +1,82 @@
+<div class="employee-dashboard">
+
+  <div class="toolbar">
+    <button (click)="openGamesModal()" class="group-users-btn">En Popüler Oyunları Göster</button>
+    <button (click)="openPositivityGamesModal()" class="group-users-btn">En Beğenilen Oyunları Göster</button>
+    <button (click)="logout()" class="group-users-btn">Logout</button>
+
+</div>
+  <div class="modal" *ngIf="isTopGamesModalVisible">
+    <div class="modal-content">
+      <span class="close" (click)="closeGamesModal()">&times;</span>
+      <h2>Top 10 Games by Popularity</h2>
+      <div class="scrollable-content">
+        <ul>
+          <li *ngFor="let game of topGames">
+            <strong>{{ game.game.name }}</strong> - {{ game.game.genre }} (Popularity: {{ game.popularityScore }})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable Modal for Top Positive Games -->
+<div class="modal" *ngIf="isPositivityGamesModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closePositivityGamesModal()">&times;</span>
+    <h2>Top 10 Games by Positivity</h2>
+    <div class="scrollable-content">
+      <ul>
+        <li *ngFor="let game of positiveGames">
+          <strong>{{ game.game.name }}</strong> - {{ game.game.genre }} (Positivity: {{ game.positivityScore }})
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    <h1>Employee Dashboard</h1>
+    <!-- Bildirim Gönderme Formu -->
+    <div class="notification-form">
+      <textarea [(ngModel)]="notificationContent" placeholder="Enter notification content"></textarea>
+      <button (click)="submitNotification()" [disabled]="!notificationContent.trim()">Submit Notification</button>
+    </div>
+  
+    <div *ngIf="notifications.length > 0">
+      <h3>Notifications</h3>
+      <ul>
+        <li *ngFor="let notification of notifications">
+          {{ notification.content }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="campaign-form">
+    <h2>Create Campaign</h2>
+    <form (ngSubmit)="submitCampaign()">
+        <textarea placeholder="Campaign Information" [(ngModel)]="campaignInfo" name="campaignInfo" required></textarea>
+        
+        <div class="reward-option">
+            <label for="hasReward">Has Reward?</label>
+            <input type="checkbox" [(ngModel)]="hasReward" name="hasReward" />
+        </div>
+        
+        <textarea *ngIf="hasReward" placeholder="Reward Information" [(ngModel)]="rewardInfo" name="rewardInfo"></textarea>
+        
+        <button type="submit" [disabled]="!campaignInfo">Create Campaign</button>
+    </form>
+</div>
+<!-- Display Feedback Percentages -->
+<div>
+  <button (click)="fetchPercentage()" class="group-users-btn">Get Feedback Percentages</button>
+
+  <div *ngIf="positive_rating || neutral_rating || negative_rating">
+    <h3>Feedback Percentages:</h3>
+    <ul>
+      <li><strong>Positive:</strong> {{ positive_rating }}%</li>
+      <li><strong>Neutral:</strong> {{ neutral_rating }}%</li>
+      <li><strong>Negative:</strong> {{ negative_rating }}%</li>
+    </ul>
+  </div>
+</div>
+
+  

@@ -1,0 +1,82 @@
+.header {
+    background-color: #ff002a;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    z-index: 1000;
+    /* Üstte kalması için z-index */
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.footer {
+    background-color: #ff002a;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Sayfanın tüm yüksekliğini kaplar */
+}
+
+router-outlet {
+    flex: 1;
+    /* İçeriğin kalan alanı kaplamasını sağlar */
+    overflow-y: auto;
+    /* İçeriğin taşması durumunda kaydırma çubuğu ekler */
+    padding: 20px;
+    /* Padding ekleyerek içerik boşluğu oluşturma */
+    margin-top: 60px;
+    /* Header için üst boşluk */
+    margin-bottom: 60px;
+    /* Footer için alt boşluk */
+}
+
+/* app.component.css */
+header {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: white;
+    color: #0073e6;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e6f7ff;
+}
+
+.file-explorer {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-left: 1px solid #ccc;
+    padding: 20px;
+}

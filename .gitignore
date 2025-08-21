@@ -1,0 +1,4 @@
+#gitignore nodemodules and angular
+node_modules/
+dist/
+.angular/

@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    baseUrlStorage: "http://aka-game-services.kolless.xyz",
-    baseUrlMaster: 'http://aka-game-services.kolless.xyz'
+    baseUrlStorage: "https://aka-game-services.kolless.xyz",
+    baseUrlMaster: 'https://aka-game-services.kolless.xyz'
 };
